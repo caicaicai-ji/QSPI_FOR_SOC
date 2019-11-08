@@ -1,0 +1,14 @@
+
+run
+-ifmt VHDL
+-ent qspi_addr_fifo_mem_exdes 
+-p xc6slx150-fgg484-3
+-ifn xst.prj
+-write_timing_constraints No
+-iobuf YES
+-max_fanout 100
+-ofn qspi_addr_fifo_mem_exdes 
+-ofmt NGC
+-bus_delimiter ()
+-hierarchy_separator /
+-case Maintain

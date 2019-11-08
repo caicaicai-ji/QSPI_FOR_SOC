@@ -1,0 +1,782 @@
+/*
+     Copyright (c) 2018 SMIC             
+     Filename:      qspi_data_info_64_mem_ss_1.08_-40.lib
+     IP code:       S55NLLG2PH
+     Version:       1.1.0
+     CreateDate:    Oct 28, 2018        
+                    
+    Synopsys Technology Library for General 2-PORT SRAM
+    SMIC 55nm LL Logic Process
+
+    Configuration: -instname qspi_data_info_64_mem -rows 64 -bits 64 -mux 1 
+    Redundancy: Off
+    Bit-Write: Off
+*/
+
+/* DISCLAIMER                                                                      */
+/*                                                                                 */  
+/*   SMIC hereby provides the quality information to you but makes no claims,      */
+/* promises or guarantees about the accuracy, completeness, or adequacy of the     */
+/* information herein. The information contained herein is provided on an "AS IS"  */
+/* basis without any warranty, and SMIC assumes no obligation to provide support   */
+/* of any kind or otherwise maintain the information.                              */  
+/*   SMIC disclaims any representation that the information does not infringe any  */
+/* intellectual property rights or proprietary rights of any third parties. SMIC   */
+/* makes no other warranty, whether express, implied or statutory as to any        */
+/* matter whatsoever, including but not limited to the accuracy or sufficiency of  */
+/* any information or the merchantability and fitness for a particular purpose.    */
+/* Neither SMIC nor any of its representatives shall be liable for any cause of    */
+/* action incurred to connect to this service.                                     */  
+/*                                                                                 */
+/* STATEMENT OF USE AND CONFIDENTIALITY                                            */  
+/*                                                                                 */  
+/*   The following/attached material contains confidential and proprietary         */  
+/* information of SMIC. This material is based upon information which SMIC         */  
+/* considers reliable, but SMIC neither represents nor warrants that such          */
+/* information is accurate or complete, and it must not be relied upon as such.    */
+/* This information was prepared for informational purposes and is for the use     */
+/* by SMIC's customer only. SMIC reserves the right to make changes in the         */  
+/* information at any time without notice.                                         */  
+/*   No part of this information may be reproduced, transmitted, transcribed,      */  
+/* stored in a retrieval system, or translated into any human or computer          */ 
+/* language, in any form or by any means, electronic, mechanical, magnetic,        */  
+/* optical, chemical, manual, or otherwise, without the prior written consent of   */
+/* SMIC. Any unauthorized use or disclosure of this material is strictly           */  
+/* prohibited and may be unlawful. By accepting this material, the receiving       */  
+/* party shall be deemed to have acknowledged, accepted, and agreed to be bound    */
+/* by the foregoing limitations and restrictions. Thank you.                       */  
+/*                                                                                 */  
+library(qspi_data_info_64_mem_ss_1.08_-40) {
+	delay_model		: table_lookup;
+	time_unit		: "1ns";
+	voltage_unit		: "1V";
+	current_unit		: "1mA";
+	leakage_power_unit	: "1mW";
+	nom_process		: 1;
+	nom_temperature         : -40;
+	nom_voltage		: 1.08;
+	capacitive_load_unit	 (1,pf);
+
+	pulling_resistance_unit	: "1kohm";
+
+	/* additional header data */
+	default_cell_leakage_power      : 0;
+	default_fanout_load		: 1;
+	default_inout_pin_cap		: 0.005;
+	default_input_pin_cap		: 0.005;
+	default_output_pin_cap		: 0.0;
+	default_max_transition		: 1.000;
+
+      /* default attributes */
+      default_leakage_power_density : 0.0;
+      slew_derate_from_library      : 1.000;
+      slew_lower_threshold_pct_fall : 10.000;
+      slew_upper_threshold_pct_fall : 90.000;
+      slew_lower_threshold_pct_rise : 10.000;
+      slew_upper_threshold_pct_rise : 90.000;
+      input_threshold_pct_fall      : 50.000;
+      input_threshold_pct_rise      : 50.000;
+      output_threshold_pct_fall     : 50.000;
+      output_threshold_pct_rise     : 50.000;
+
+ 	/* k-factors */
+ 	k_process_cell_fall             : 1;
+ 	k_process_cell_leakage_power    : 0;
+ 	k_process_cell_rise             : 1;
+ 	k_process_fall_transition       : 1;
+ 	k_process_hold_fall             : 1;
+ 	k_process_hold_rise             : 1;
+ 	k_process_internal_power        : 0;
+ 	k_process_min_pulse_width_high  : 1;
+ 	k_process_min_pulse_width_low   : 1;
+ 	k_process_pin_cap               : 0;
+ 	k_process_recovery_fall         : 1;
+ 	k_process_recovery_rise         : 1;
+ 	k_process_rise_transition       : 1;
+ 	k_process_setup_fall            : 1;
+ 	k_process_setup_rise            : 1;
+ 	k_process_wire_cap              : 0;
+ 	k_process_wire_res              : 0;
+	k_temp_cell_fall                : 0.000;
+	k_temp_cell_rise		: 0.000;
+	k_temp_hold_fall                : 0.000;
+	k_temp_hold_rise                : 0.000;
+	k_temp_min_pulse_width_high     : 0.000;
+	k_temp_min_pulse_width_low      : 0.000;
+	k_temp_min_period               : 0.000;
+	k_temp_rise_propagation         : 0.000;
+	k_temp_fall_propagation         : 0.000;
+	k_temp_rise_transition          : 0.0;
+	k_temp_fall_transition          : 0.0;
+	k_temp_recovery_fall            : 0.000;
+	k_temp_recovery_rise            : 0.000;
+	k_temp_setup_fall               : 0.000;
+	k_temp_setup_rise               : 0.000;
+	k_volt_cell_fall                : 0.000;
+	k_volt_cell_rise                : 0.000;
+	k_volt_hold_fall                : 0.000;
+	k_volt_hold_rise                : 0.000;
+	k_volt_min_pulse_width_high     : 0.000;
+	k_volt_min_pulse_width_low      : 0.000;
+	k_volt_min_period               : 0.000;
+	k_volt_rise_propagation         : 0.000;
+	k_volt_fall_propagation         : 0.000;
+	k_volt_rise_transition	        : 0.0;
+	k_volt_fall_transition	        : 0.0;
+	k_volt_recovery_fall            : 0.000;
+	k_volt_recovery_rise            : 0.000;
+	k_volt_setup_fall               : 0.000;
+	k_volt_setup_rise               : 0.000;
+
+
+        operating_conditions(ss_1.08_-40) {
+		process	         : 1;
+		temperature	 : -40;
+		voltage	         : 1.08;
+		tree_type	 : balanced_tree;
+	}
+        default_operating_conditions : ss_1.08_-40;
+	  wire_load("sample") {
+		resistance	 : 1.6e-05;
+		capacitance	 : 0.0002;
+		area	 : 1.7;
+  		slope	 : 500;
+		fanout_length	 (1,500);
+	}
+        lu_table_template(qspi_data_info_64_mem_bist_mux_delay_template) {
+           variable_1 : input_net_transition;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        lu_table_template(qspi_data_info_64_mem_mux_mem_out_delay_template) {
+           variable_1 : input_net_transition;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        lu_table_template(qspi_data_info_64_mem_mem_out_delay_template) {
+           variable_1 : input_net_transition;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	  lu_table_template(qspi_data_info_64_mem_bist_mux_slew_template) {
+           variable_1 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	  lu_table_template(qspi_data_info_64_mem_mem_out_slew_template) {
+           variable_1 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	  lu_table_template(qspi_data_info_64_mem_clk_setup_constraint_template) {
+           variable_1 : related_pin_transition;
+           variable_2 : constrained_pin_transition;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	  lu_table_template(qspi_data_info_64_mem_constraint_template) {
+           variable_1 : related_pin_transition;
+           variable_2 : constrained_pin_transition;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        
+power_lut_template(qspi_data_info_64_mem_energy_template_clkslew_load) {
+           variable_1 : input_transition_time;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        
+     power_lut_template(qspi_data_info_64_mem_energy_template_sigslew_load) {
+           variable_1 : input_transition_time;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+      power_lut_template(qspi_data_info_64_mem_energy_template_load) {
+           variable_1 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+      power_lut_template(qspi_data_info_64_mem_energy_template_clkslew) {
+           variable_1 : input_transition_time;
+               index_1 ("1000, 1001");
+        }
+      power_lut_template(qspi_data_info_64_mem_energy_template_sigslew) {
+           variable_1 : input_transition_time;
+               index_1 ("1000, 1001");
+        }
+	library_features(report_delay_calculation);
+	type (qspi_data_info_64_mem_DATA) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 64;
+		bit_from : 63;
+		bit_to : 0 ;
+		downto : true ;
+	}
+
+	type (qspi_data_info_64_mem_ADDRESS) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 6;
+		bit_from : 5;
+		bit_to : 0 ;
+		downto : true ;
+	}
+        type (qspi_data_info_64_mem_S) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 3;
+		bit_from : 2;
+		bit_to : 0 ;
+		downto : true ;
+	}
+
+
+cell(qspi_data_info_64_mem) {
+	area		 : 16057.778;
+	dont_use	 : TRUE;
+	dont_touch	 : TRUE;
+      interface_timing : TRUE;
+	memory() {
+		type : ram;
+		address_width : 6;
+		word_width : 64;
+	}
+        bus(QA)   {
+            bus_type : qspi_data_info_64_mem_DATA;
+		direction : output;
+		max_capacitance : 0.400;
+                memory_read() {
+			address : AA;
+		}
+                timing() {
+                        related_pin :   "CLKA" ;
+                        timing_type : rising_edge ;
+                        timing_sense : non_unate;
+                        
+              cell_rise(qspi_data_info_64_mem_mem_out_delay_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.001, 0.005, 0.010, 0.050, 0.100, 0.200, 0.400");
+                        values(\
+			"0.889, 0.886, 0.906, 0.969, 1.046, 1.201, 1.510",\
+			"0.888, 0.890, 0.891, 0.974, 1.036, 1.203, 1.514",\
+			"0.916, 0.920, 0.925, 0.991, 1.077, 1.220, 1.529",\
+			"0.943, 0.934, 0.943, 1.005, 1.083, 1.238, 1.564",\
+			"0.959, 0.963, 0.968, 1.040, 1.113, 1.268, 1.575",\
+			"0.966, 0.999, 0.998, 1.064, 1.145, 1.296, 1.613",\
+			"1.007, 0.995, 0.994, 1.075, 1.141, 1.285, 1.601"\
+                        );
+                        }
+                        rise_transition(qspi_data_info_64_mem_mem_out_slew_template) {
+                        index_1("0.001, 0.005, 0.010, 0.050, 0.100, 0.200, 0.400");
+			values("0.023, 0.019, 0.051, 0.175, 0.337, 0.677, 1.311");
+                        }
+                        
+               cell_fall(qspi_data_info_64_mem_mem_out_delay_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.001, 0.005, 0.010, 0.050, 0.100, 0.200, 0.400");
+                        values(\
+			"0.867, 0.865, 0.884, 0.932, 0.986, 1.096, 1.316",\
+			"0.867, 0.868, 0.868, 0.936, 0.977, 1.099, 1.319",\
+			"0.895, 0.898, 0.903, 0.953, 1.017, 1.115, 1.335",\
+			"0.922, 0.912, 0.920, 0.968, 1.023, 1.134, 1.371",\
+			"0.938, 0.941, 0.946, 1.002, 1.054, 1.164, 1.382",\
+			"0.945, 0.977, 0.976, 1.027, 1.086, 1.191, 1.419",\
+			"0.985, 0.973, 0.971, 1.037, 1.081, 1.181, 1.407"\
+                        );
+                        }
+                        
+                        fall_transition(qspi_data_info_64_mem_mem_out_slew_template) {
+                        index_1("0.001, 0.005, 0.010, 0.050, 0.100, 0.200, 0.400");
+			values("0.024, 0.021, 0.044, 0.125, 0.229, 0.445, 0.887");
+                        }
+            }
+        }
+        pin(CLKA)   {
+		direction : input;
+		capacitance : 0.015;
+                clock : true;
+                max_transition : 1.000;
+                timing() {
+                        related_pin     : "CLKB" ;
+                        timing_type     : setup_rising ;
+                        rise_constraint(qspi_data_info_64_mem_clk_setup_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977"\
+                        );
+                        }
+                 }
+                min_pulse_width_high  : 0.040 ;
+                min_pulse_width_low   : 0.231 ;
+                min_period            : 0.977 ;
+
+                internal_power(){
+                        when : "(!CENA )";
+                        
+                        rise_power(qspi_data_info_64_mem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("4.456, 4.456")
+                        }
+                        
+                        fall_power(qspi_data_info_64_mem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+                 internal_power(){
+                         when : "(CENA)";
+
+                        rise_power(qspi_data_info_64_mem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.027, 0.027")
+                        }
+
+                        fall_power(qspi_data_info_64_mem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                        }
+                }
+
+        pin(CENA)   {
+                direction : input;
+                capacitance : 0.003;
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : setup_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.215, 0.215, 0.228, 0.245, 0.271, 0.333, 0.383",\
+			"0.417, 0.206, 0.219, 0.236, 0.263, 0.327, 0.373",\
+			"0.404, 0.198, 0.211, 0.228, 0.255, 0.315, 0.356",\
+			"0.397, 0.187, 0.201, 0.216, 0.244, 0.307, 0.355",\
+			"0.396, 0.172, 0.185, 0.202, 0.227, 0.292, 0.335",\
+			"0.381, 0.167, 0.179, 0.195, 0.222, 0.286, 0.333",\
+			"0.373, 0.219, 0.194, 0.193, 0.219, 0.279, 0.320"\
+                        );
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.277, 0.277, 0.292, 0.309, 0.347, 0.454, 0.532",\
+			"0.271, 0.271, 0.282, 0.303, 0.341, 0.448, 0.528",\
+			"0.283, 0.283, 0.297, 0.314, 0.351, 0.460, 0.539",\
+			"0.315, 0.315, 0.329, 0.347, 0.383, 0.491, 0.570",\
+			"0.404, 0.404, 0.417, 0.433, 0.470, 0.578, 0.657",\
+			"0.730, 0.476, 0.487, 0.504, 0.539, 0.647, 0.726",\
+			"0.800, 0.542, 0.553, 0.570, 0.608, 0.711, 0.793"\
+                        );
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : hold_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.001, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.013, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.027, 0.014, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.030, 0.019, 0.003, 0.000, 0.000, 0.000",\
+			"0.000, 0.032, 0.020, 0.004, 0.000, 0.000, 0.000"\
+                        );
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000"\
+                        );
+                        }
+               }
+        }
+
+        bus(AA)   {
+                bus_type : qspi_data_info_64_mem_ADDRESS;
+                direction : input;
+                capacitance : 0.002;
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : setup_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.461, 0.472, 0.451, 0.451, 0.488, 0.533, 0.570",\
+			"0.451, 0.461, 0.451, 0.448, 0.476, 0.525, 0.565",\
+			"0.448, 0.452, 0.451, 0.448, 0.465, 0.510, 0.552",\
+			"0.450, 0.461, 0.451, 0.448, 0.455, 0.494, 0.533",\
+			"0.442, 0.451, 0.451, 0.448, 0.448, 0.487, 0.516",\
+			"0.448, 0.451, 0.451, 0.448, 0.453, 0.492, 0.524",\
+			"0.462, 0.451, 0.461, 0.448, 0.466, 0.506, 0.538"\
+			);
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.477, 0.486, 0.465, 0.465, 0.532, 0.598, 0.651",\
+			"0.465, 0.475, 0.465, 0.454, 0.527, 0.580, 0.639",\
+			"0.454, 0.465, 0.465, 0.454, 0.514, 0.568, 0.634",\
+			"0.446, 0.477, 0.465, 0.454, 0.497, 0.560, 0.607",\
+			"0.464, 0.465, 0.465, 0.454, 0.461, 0.522, 0.582",\
+			"0.471, 0.465, 0.465, 0.454, 0.462, 0.514, 0.558",\
+			"0.485, 0.465, 0.477, 0.454, 0.476, 0.527, 0.571"\
+			);
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKA;
+                        timing_type     : hold_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.073, 0.058, 0.043, 0.043, 0.039, 0.062, 0.039",\
+			"0.086, 0.072, 0.054, 0.039, 0.039, 0.062, 0.062",\
+			"0.098, 0.088, 0.071, 0.040, 0.037, 0.062, 0.101",\
+			"0.121, 0.121, 0.107, 0.074, 0.043, 0.062, 0.101",\
+			"0.171, 0.157, 0.132, 0.121, 0.039, 0.062, 0.101",\
+			"0.182, 0.165, 0.147, 0.125, 0.062, 0.037, 0.101",\
+			"0.195, 0.181, 0.166, 0.144, 0.062, 0.043, 0.101"\
+			);
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.015, 0.002, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.029, 0.014, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.041, 0.031, 0.013, 0.000, 0.000, 0.000, 0.010",\
+			"0.064, 0.064, 0.046, 0.014, 0.000, 0.000, 0.010",\
+			"0.114, 0.101, 0.074, 0.054, 0.000, 0.000, 0.010",\
+			"0.125, 0.111, 0.090, 0.059, 0.000, 0.000, 0.010",\
+			"0.138, 0.125, 0.113, 0.083, 0.000, 0.000, 0.010"\
+			);
+                        }
+               }
+                internal_power(){
+                        when : "CENA";
+                        
+                        rise_power(qspi_data_info_64_mem_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.321, 0.321")
+                        }
+                        
+                        fall_power(qspi_data_info_64_mem_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.321, 0.321")
+                        }
+                }
+        }
+        pin(CLKB)   {
+		direction : input;
+		capacitance : 0.015;
+                clock : true;
+                max_transition : 1.000;
+                timing() {
+                        related_pin     : "CLKA" ;
+                        timing_type     : setup_rising ;
+                        rise_constraint(qspi_data_info_64_mem_clk_setup_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977",\
+                         "0.977, 0.977, 0.977, 0.977, 0.977, 0.977, 0.977"\
+                        );
+                        }
+                 }
+                 min_pulse_width_high : 0.040 ;
+                 min_pulse_width_low  : 0.231 ;
+                 min_period           : 0.977 ;
+
+                 internal_power(){
+                        when : "(!CENB) \
+                                 ";
+                        rise_power(qspi_data_info_64_mem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("7.236, 7.236")
+                        }
+                        
+                        fall_power(qspi_data_info_64_mem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+                internal_power(){
+                       when : "(CENB)";
+                        
+                        rise_power(qspi_data_info_64_mem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.027, 0.027")
+                        }
+                        
+                        fall_power(qspi_data_info_64_mem_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+        }
+        pin(CENB)   {
+                direction : input;
+                capacitance : 0.003;
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : setup_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.215, 0.215, 0.228, 0.245, 0.271, 0.333, 0.383",\
+			"0.417, 0.206, 0.219, 0.236, 0.263, 0.327, 0.373",\
+			"0.404, 0.198, 0.211, 0.228, 0.255, 0.315, 0.356",\
+			"0.397, 0.187, 0.201, 0.216, 0.244, 0.307, 0.355",\
+			"0.396, 0.172, 0.185, 0.202, 0.227, 0.292, 0.335",\
+			"0.381, 0.167, 0.179, 0.195, 0.222, 0.286, 0.333",\
+			"0.373, 0.219, 0.194, 0.193, 0.219, 0.279, 0.320"\
+                        );
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.277, 0.277, 0.292, 0.309, 0.347, 0.454, 0.532",\
+			"0.271, 0.271, 0.282, 0.303, 0.341, 0.448, 0.528",\
+			"0.283, 0.283, 0.297, 0.314, 0.351, 0.460, 0.539",\
+			"0.315, 0.315, 0.329, 0.347, 0.383, 0.491, 0.570",\
+			"0.404, 0.404, 0.417, 0.433, 0.470, 0.578, 0.657",\
+			"0.730, 0.476, 0.487, 0.504, 0.539, 0.647, 0.726",\
+			"0.800, 0.542, 0.553, 0.570, 0.608, 0.711, 0.793"\
+                        );
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : hold_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.001, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.013, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.027, 0.014, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.030, 0.019, 0.003, 0.000, 0.000, 0.000",\
+			"0.000, 0.032, 0.020, 0.004, 0.000, 0.000, 0.000"\
+                        );
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000"\
+                        );
+                        }
+               }
+        }
+        bus(AB)   {
+                bus_type : qspi_data_info_64_mem_ADDRESS;
+                direction : input;
+                capacitance : 0.002;
+               timing() {
+                        related_pin     : CLKB;
+                        timing_type     : setup_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.461, 0.472, 0.451, 0.451, 0.488, 0.533, 0.570",\
+			"0.451, 0.461, 0.451, 0.448, 0.476, 0.525, 0.565",\
+			"0.448, 0.452, 0.451, 0.448, 0.465, 0.510, 0.552",\
+			"0.450, 0.461, 0.451, 0.448, 0.455, 0.494, 0.533",\
+			"0.442, 0.451, 0.451, 0.448, 0.448, 0.487, 0.516",\
+			"0.448, 0.451, 0.451, 0.448, 0.453, 0.492, 0.524",\
+			"0.462, 0.451, 0.461, 0.448, 0.466, 0.506, 0.538"\
+			);
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.477, 0.486, 0.465, 0.465, 0.532, 0.598, 0.651",\
+			"0.465, 0.475, 0.465, 0.454, 0.527, 0.580, 0.639",\
+			"0.454, 0.465, 0.465, 0.454, 0.514, 0.568, 0.634",\
+			"0.446, 0.477, 0.465, 0.454, 0.497, 0.560, 0.607",\
+			"0.464, 0.465, 0.465, 0.454, 0.461, 0.522, 0.582",\
+			"0.471, 0.465, 0.465, 0.454, 0.462, 0.514, 0.558",\
+			"0.485, 0.465, 0.477, 0.454, 0.476, 0.527, 0.571"\
+			);
+                        }
+                } 
+               timing() {
+                        related_pin     : CLKB;
+                        timing_type     : hold_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.073, 0.058, 0.043, 0.043, 0.039, 0.062, 0.039",\
+			"0.086, 0.072, 0.054, 0.039, 0.039, 0.062, 0.062",\
+			"0.098, 0.088, 0.071, 0.040, 0.037, 0.062, 0.101",\
+			"0.121, 0.121, 0.107, 0.074, 0.043, 0.062, 0.101",\
+			"0.171, 0.157, 0.132, 0.121, 0.039, 0.062, 0.101",\
+			"0.182, 0.165, 0.147, 0.125, 0.062, 0.037, 0.101",\
+			"0.195, 0.181, 0.166, 0.144, 0.062, 0.043, 0.101"\
+			);
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.015, 0.002, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.029, 0.014, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.041, 0.031, 0.013, 0.000, 0.000, 0.000, 0.010",\
+			"0.064, 0.064, 0.046, 0.014, 0.000, 0.000, 0.010",\
+			"0.114, 0.101, 0.074, 0.054, 0.000, 0.000, 0.010",\
+			"0.125, 0.111, 0.090, 0.059, 0.000, 0.000, 0.010",\
+			"0.138, 0.125, 0.113, 0.083, 0.000, 0.000, 0.010"\
+			);
+                        }
+               }
+               internal_power(){
+                        when : "CENB";
+                        
+                        rise_power(qspi_data_info_64_mem_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.321, 0.321")
+                        }
+                        
+                        fall_power(qspi_data_info_64_mem_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.321, 0.321")
+                        }
+                }
+        }
+        bus(DB)   {
+                bus_type : qspi_data_info_64_mem_DATA;
+                memory_write() {
+                        address : AB;
+                        clocked_on : "CLKB";
+                }
+                direction : input;
+                capacitance : 0.002;
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : setup_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.241, 0.253, 0.263, 0.293, 0.368, 0.424, 0.486",\
+			"0.232, 0.241, 0.250, 0.282, 0.353, 0.413, 0.474",\
+			"0.230, 0.233, 0.234, 0.264, 0.336, 0.399, 0.461",\
+			"0.231, 0.241, 0.232, 0.246, 0.319, 0.382, 0.441",\
+			"0.437, 0.409, 0.375, 0.306, 0.273, 0.340, 0.402",\
+			"0.609, 0.581, 0.547, 0.478, 0.272, 0.317, 0.392",\
+			"0.781, 0.753, 0.719, 0.650, 0.444, 0.299, 0.361"\
+			);
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.273, 0.283, 0.260, 0.260, 0.348, 0.424, 0.492",\
+			"0.260, 0.270, 0.260, 0.252, 0.336, 0.412, 0.479",\
+			"0.252, 0.257, 0.260, 0.252, 0.325, 0.399, 0.466",\
+			"0.241, 0.273, 0.260, 0.252, 0.304, 0.380, 0.447",\
+			"0.437, 0.409, 0.375, 0.306, 0.265, 0.340, 0.408",\
+			"0.609, 0.581, 0.547, 0.478, 0.272, 0.317, 0.411",\
+			"0.781, 0.753, 0.719, 0.650, 0.444, 0.304, 0.367"\
+			);
+                        }
+                } 
+                timing() {
+                        related_pin     : CLKB;
+                        timing_type     : hold_rising ;
+                        
+                        rise_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.296, 0.286, 0.307, 0.307, 0.317, 0.336, 0.317",\
+			"0.307, 0.296, 0.307, 0.317, 0.317, 0.336, 0.336",\
+			"0.317, 0.306, 0.307, 0.317, 0.296, 0.336, 0.374",\
+			"0.336, 0.296, 0.307, 0.317, 0.307, 0.336, 0.374",\
+			"0.374, 0.307, 0.307, 0.317, 0.317, 0.336, 0.374",\
+			"0.395, 0.307, 0.307, 0.317, 0.336, 0.296, 0.374",\
+			"0.411, 0.307, 0.296, 0.317, 0.336, 0.307, 0.374"\
+			);
+                        }
+                        
+                        fall_constraint(qspi_data_info_64_mem_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.269, 0.260, 0.281, 0.281, 0.292, 0.310, 0.292",\
+			"0.281, 0.272, 0.281, 0.292, 0.292, 0.310, 0.310",\
+			"0.292, 0.283, 0.281, 0.292, 0.269, 0.310, 0.347",\
+			"0.310, 0.269, 0.281, 0.292, 0.281, 0.310, 0.347",\
+			"0.347, 0.281, 0.281, 0.292, 0.292, 0.310, 0.347",\
+			"0.368, 0.281, 0.281, 0.292, 0.310, 0.269, 0.347",\
+			"0.384, 0.281, 0.269, 0.292, 0.310, 0.281, 0.347"\
+			);
+                        }
+               }
+        }
+
+        cell_leakage_power : 0.000055;
+}
+}

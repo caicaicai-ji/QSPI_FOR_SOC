@@ -1,0 +1,62 @@
+#!/bin/csh -f
+#          _/             _/_/
+#        _/_/           _/_/_/
+#      _/_/_/_/         _/_/_/
+#      _/_/_/_/_/       _/_/_/              ____________________________________________ 
+#      _/_/_/_/_/       _/_/_/             /                                           / 
+#      _/_/_/_/_/       _/_/_/            /                               N25Q128A13B / 
+#      _/_/_/_/_/       _/_/_/           /                                           /  
+#      _/_/_/_/_/_/     _/_/_/          /                                   128Mbit / 
+#      _/_/_/_/_/_/     _/_/_/         /                              SERIAL FLASH / 
+#      _/_/_/ _/_/_/    _/_/_/        /                                           / 
+#      _/_/_/  _/_/_/   _/_/_/       /                  Verilog Behavioral Model / 
+#      _/_/_/   _/_/_/  _/_/_/      /                               Version 1.7 / 
+#      _/_/_/    _/_/_/ _/_/_/     /                                           /
+#      _/_/_/     _/_/_/_/_/_/    /           Copyright (c) 2011 Numonyx B.V. / 
+#      _/_/_/      _/_/_/_/_/    /___________________________________________/ 
+#      _/_/_/       _/_/_/_/      
+#      _/_/          _/_/_/  
+# 
+#     
+#             NUMONYX              
+
+
+set RUNDIR  = ./
+set CODEDIR = ./code
+set STIMDIR = ./stim
+set TOPDIR  = ./top
+set SIMDIR  = ./sim
+
+
+if (-e $SIMDIR/work) then
+\rm -r $SIMDIR/work
+endif
+vlib $SIMDIR/work
+
+
+#CODE
+vlog -work $SIMDIR/work $CODEDIR/N25Q128A13B.v
+if ( $status != 0 ) exit 2
+
+
+#STIM
+#vlog -work $SIMDIR/work $STIMDIR/read.v
+vlog -work $SIMDIR/work $STIMDIR/test_reg.v
+if ( $status != 0 ) exit 3
+
+
+#TOP
+vlog -work $SIMDIR/work $TOPDIR/Testbench.v
+if ( $status != 0 ) exit 4
+vlog -work $SIMDIR/work $TOPDIR/StimTasks.v
+if ( $status != 0 ) exit 4
+vlog -work $SIMDIR/work $TOPDIR/ClockGenerator.v
+if ( $status != 0 ) exit 4
+
+
+# Simulate
+cd $SIMDIR
+vsim -novopt -wlfnocollapse -gui -t 1ps work.Testbench  $1 &
+if ( $status != 0 ) exit 5
+
+

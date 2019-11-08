@@ -1,0 +1,116 @@
+//     Copyright (c) 2018 SMIC             
+//     Filename:      qspi_info_fifo_mem.mbist
+//     IP code:       S55NLLG2PH
+//     Version:       1.1.0
+//     CreateDate:    Oct 31, 2018        
+                    
+//    Mentor Mbist for General 2-PORT SRAM
+//    SMIC 55nm LL Logic Process
+
+//    Configuration: -instname qspi_info_fifo_mem -rows 32 -bits 16 -mux 1 
+//    Redundancy: Off
+ //   Bit-Write: Off
+
+// DISCLAIMER                                                                      //
+//                                                                                 //  
+//   SMIC hereby provides the quality information to you but makes no claims,      //
+// promises or guarantees about the accuracy, completeness, or adequacy of the     //
+// information herein. The information contained herein is provided on an "AS IS"  //
+// basis without any warranty, and SMIC assumes no obligation to provide support   //
+// of any kind or otherwise maintain the information.                              //  
+//   SMIC disclaims any representation that the information does not infringe any  //
+// intellectual property rights or proprietary rights of any third parties. SMIC   //
+// makes no other warranty, whether express, implied or statutory as to any        //
+// matter whatsoever, including but not limited to the accuracy or sufficiency of  //
+// any information or the merchantability and fitness for a particular purpose.    //
+// Neither SMIC nor any of its representatives shall be liable for any cause of    //
+// action incurred to connect to this service.                                     //  
+//                                                                                 //
+// STATEMENT OF USE AND CONFIDENTIALITY                                            //  
+//                                                                                 //  
+//   The following/attached material contains confidential and proprietary         //  
+// information of SMIC. This material is based upon information which SMIC         //  
+// considers reliable, but SMIC neither represents nor warrants that such          //
+// information is accurate or complete, and it must not be relied upon as such.    //
+// This information was prepared for informational purposes and is for the use     //
+// by SMIC's customer only. SMIC reserves the right to make changes in the         //  
+// information at any time without notice.                                         //  
+//   No part of this information may be reproduced, transmitted, transcribed,      //  
+// stored in a retrieval system, or translated into any human or computer          // 
+// language, in any form or by any means, electronic, mechanical, magnetic,        //  
+// optical, chemical, manual, or otherwise, without the prior written consent of   //
+// SMIC. Any unauthorized use or disclosure of this material is strictly           //  
+// prohibited and may be unlawful. By accepting this material, the receiving       //  
+// party shall be deemed to have acknowledged, accepted, and agreed to be bound    //
+// by the foregoing limitations and restrictions. Thank you.                       //  
+//                                                                                 //
+
+model qspi_info_fifo_mem(QA, AA, CLKA, CENA, AB, DB, CLKB, CENB)
+(
+   bist_definition (
+      address        AA (array = 4:0;);
+      data_out       QA (array = 15:0;);
+      read_enable    CENA low;
+      clock          CLKA high;
+      address        AB (array = 4:0;);
+      data_in        DB (array = 15:0;);
+      write_enable   CENB low;
+      clock          CLKB high;
+
+      tech        = "SRAM (55nm)";
+      vendor      = SMIC;
+      min_address = 0;
+      max_address = 31;
+      message     = "Synchronous 2-Port 32x16 SRAM";
+
+      top_column  = 1;
+      top_word    = 0;
+
+      descrambling_definition (
+         address (
+                rab_0 = AB<3> XOR AB<0>;
+                rab_1 = AB<3> XOR AB<1>;
+                rab_2 = AB<3> XOR AB<2>;
+                rab_3 = AB<3>; 
+                rab_4 = AB<4>; 
+            )
+          data_in (
+               Din0 = DB<0>;
+               Din1 = DB<1>;
+               Din2 = DB<2>;
+               Din3 = DB<3>;
+               Din4 = DB<4>;
+               Din5 = DB<5>;
+               Din6 = DB<6>;
+               Din7 = DB<7>;
+               Din8 = DB<8>;
+               Din9 = DB<9>;
+               Din10 = DB<10>;
+               Din11 = DB<11>;
+               Din12 = DB<12>;
+               Din13 = DB<13>;
+               Din14 = DB<14>;
+               Din15 = DB<15>;
+            )
+         )
+
+     read_write_port (
+         read_cycle (
+            change AA;
+            assert CENA;
+            wait;
+            wait;
+            expect QA move;
+            wait;
+         )
+         write_cycle (
+            change AB;
+            change DB;
+            assert CENB;
+             wait;
+             wait;
+         )
+      )
+
+   )
+)

@@ -1,0 +1,165 @@
+//     Copyright (c) 2018 SMIC             
+//     Filename:      qspi_data_info_64_mem.mbist
+//     IP code:       S55NLLG2PH
+//     Version:       1.1.0
+//     CreateDate:    Oct 28, 2018        
+                    
+//    Mentor Mbist for General 2-PORT SRAM
+//    SMIC 55nm LL Logic Process
+
+//    Configuration: -instname qspi_data_info_64_mem -rows 64 -bits 64 -mux 1 
+//    Redundancy: Off
+ //   Bit-Write: Off
+
+// DISCLAIMER                                                                      //
+//                                                                                 //  
+//   SMIC hereby provides the quality information to you but makes no claims,      //
+// promises or guarantees about the accuracy, completeness, or adequacy of the     //
+// information herein. The information contained herein is provided on an "AS IS"  //
+// basis without any warranty, and SMIC assumes no obligation to provide support   //
+// of any kind or otherwise maintain the information.                              //  
+//   SMIC disclaims any representation that the information does not infringe any  //
+// intellectual property rights or proprietary rights of any third parties. SMIC   //
+// makes no other warranty, whether express, implied or statutory as to any        //
+// matter whatsoever, including but not limited to the accuracy or sufficiency of  //
+// any information or the merchantability and fitness for a particular purpose.    //
+// Neither SMIC nor any of its representatives shall be liable for any cause of    //
+// action incurred to connect to this service.                                     //  
+//                                                                                 //
+// STATEMENT OF USE AND CONFIDENTIALITY                                            //  
+//                                                                                 //  
+//   The following/attached material contains confidential and proprietary         //  
+// information of SMIC. This material is based upon information which SMIC         //  
+// considers reliable, but SMIC neither represents nor warrants that such          //
+// information is accurate or complete, and it must not be relied upon as such.    //
+// This information was prepared for informational purposes and is for the use     //
+// by SMIC's customer only. SMIC reserves the right to make changes in the         //  
+// information at any time without notice.                                         //  
+//   No part of this information may be reproduced, transmitted, transcribed,      //  
+// stored in a retrieval system, or translated into any human or computer          // 
+// language, in any form or by any means, electronic, mechanical, magnetic,        //  
+// optical, chemical, manual, or otherwise, without the prior written consent of   //
+// SMIC. Any unauthorized use or disclosure of this material is strictly           //  
+// prohibited and may be unlawful. By accepting this material, the receiving       //  
+// party shall be deemed to have acknowledged, accepted, and agreed to be bound    //
+// by the foregoing limitations and restrictions. Thank you.                       //  
+//                                                                                 //
+
+model qspi_data_info_64_mem(QA, AA, CLKA, CENA, AB, DB, CLKB, CENB)
+(
+   bist_definition (
+      address        AA (array = 5:0;);
+      data_out       QA (array = 63:0;);
+      read_enable    CENA low;
+      clock          CLKA high;
+      address        AB (array = 5:0;);
+      data_in        DB (array = 63:0;);
+      write_enable   CENB low;
+      clock          CLKB high;
+
+      tech        = "SRAM (55nm)";
+      vendor      = SMIC;
+      min_address = 0;
+      max_address = 63;
+      message     = "Synchronous 2-Port 64x64 SRAM";
+
+      top_column  = 1;
+      top_word    = 0;
+
+      descrambling_definition (
+         address (
+                rab_0 = AB<3> XOR AB<0>;
+                rab_1 = AB<3> XOR AB<1>;
+                rab_2 = AB<3> XOR AB<2>;
+                rab_3 = AB<3>; 
+                rab_4 = AB<4>; 
+                rab_5 = AB<5>; 
+            )
+          data_in (
+               Din0 = DB<0>;
+               Din1 = DB<1>;
+               Din2 = DB<2>;
+               Din3 = DB<3>;
+               Din4 = DB<4>;
+               Din5 = DB<5>;
+               Din6 = DB<6>;
+               Din7 = DB<7>;
+               Din8 = DB<8>;
+               Din9 = DB<9>;
+               Din10 = DB<10>;
+               Din11 = DB<11>;
+               Din12 = DB<12>;
+               Din13 = DB<13>;
+               Din14 = DB<14>;
+               Din15 = DB<15>;
+               Din16 = DB<16>;
+               Din17 = DB<17>;
+               Din18 = DB<18>;
+               Din19 = DB<19>;
+               Din20 = DB<20>;
+               Din21 = DB<21>;
+               Din22 = DB<22>;
+               Din23 = DB<23>;
+               Din24 = DB<24>;
+               Din25 = DB<25>;
+               Din26 = DB<26>;
+               Din27 = DB<27>;
+               Din28 = DB<28>;
+               Din29 = DB<29>;
+               Din30 = DB<30>;
+               Din31 = DB<31>;
+               Din32 = DB<32>;
+               Din33 = DB<33>;
+               Din34 = DB<34>;
+               Din35 = DB<35>;
+               Din36 = DB<36>;
+               Din37 = DB<37>;
+               Din38 = DB<38>;
+               Din39 = DB<39>;
+               Din40 = DB<40>;
+               Din41 = DB<41>;
+               Din42 = DB<42>;
+               Din43 = DB<43>;
+               Din44 = DB<44>;
+               Din45 = DB<45>;
+               Din46 = DB<46>;
+               Din47 = DB<47>;
+               Din48 = DB<48>;
+               Din49 = DB<49>;
+               Din50 = DB<50>;
+               Din51 = DB<51>;
+               Din52 = DB<52>;
+               Din53 = DB<53>;
+               Din54 = DB<54>;
+               Din55 = DB<55>;
+               Din56 = DB<56>;
+               Din57 = DB<57>;
+               Din58 = DB<58>;
+               Din59 = DB<59>;
+               Din60 = DB<60>;
+               Din61 = DB<61>;
+               Din62 = DB<62>;
+               Din63 = DB<63>;
+            )
+         )
+
+     read_write_port (
+         read_cycle (
+            change AA;
+            assert CENA;
+            wait;
+            wait;
+            expect QA move;
+            wait;
+         )
+         write_cycle (
+            change AB;
+            change DB;
+            assert CENB;
+             wait;
+             wait;
+         )
+      )
+
+   )
+)
